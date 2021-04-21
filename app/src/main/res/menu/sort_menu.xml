@@ -8,4 +8,8 @@
     <item
         android:id="@+id/sort_by_role"
         android:title="@string/sort_by_role"/>
+
+    <item
+        android:id="@+id/jump_to_special"
+        android:title="@string/jump_to_special"/>
 </menu>

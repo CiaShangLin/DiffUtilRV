@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.diffutilrv">
 
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SpecialActivity.SpecialActivity"></activity>
-        <activity android:name=".MainActivity.MainActivityKt">
+        <activity android:name="com.example.diffutilrv.MainActivity.MainActivityKt">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

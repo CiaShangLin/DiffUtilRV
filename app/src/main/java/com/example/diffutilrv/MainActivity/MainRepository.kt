@@ -1,6 +1,9 @@
 package com.example.diffutilrv.MainActivity
 
+import com.example.diffutilrv.ApiService.ApiServiceManager
+import com.example.diffutilrv.Bean.CommentBeanItem
 import com.example.diffutilrv.Bean.Employee
+import io.reactivex.rxjava3.core.Observable
 
 class MainRepository {
 
@@ -22,4 +25,9 @@ class MainRepository {
 
     fun getEmployeeListSortedByRole(): List<Employee> = getEmployeeList().sortedBy { it.role }
 
+
+    fun getCommentPostIdApi(postId: Int): Observable<List<CommentBeanItem>> {
+        val url = "https://jsonplaceholder.typicode.com/comments?postId=${postId}"
+        return ApiServiceManager.apiService.getCommentsPostId(url)
+    }
 }

@@ -13,6 +13,7 @@ import com.example.diffutilrv.Adapter.EmployeeAdapter
 import com.example.diffutilrv.Bean.Employee
 import com.example.diffutilrv.ViewModelFactory.MainViewModelFactory
 import com.example.diffutilrv.R
+import com.example.diffutilrv.SpecialActivity.SpecialActivity
 import com.example.diffutilrv.databinding.ActivityMainKtBinding
 
 class MainActivityKt : AppCompatActivity() {
@@ -60,6 +61,10 @@ class MainActivityKt : AppCompatActivity() {
             }
             R.id.sort_by_role -> {
                 mMainViewModel.updateEmployeeListItemsByRole()
+                return true
+            }
+            R.id.jump_to_special -> {
+                SpecialActivity.start(this)
                 return true
             }
         }
