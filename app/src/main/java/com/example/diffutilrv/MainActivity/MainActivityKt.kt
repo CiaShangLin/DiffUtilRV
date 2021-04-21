@@ -1,4 +1,4 @@
-package com.example.diffutilrv.Normal
+package com.example.diffutilrv.MainActivity
 
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.diffutilrv.Adapter.EmployeeAdapter
+import com.example.diffutilrv.Bean.Employee
+import com.example.diffutilrv.ViewModelFactory.MainViewModelFactory
 import com.example.diffutilrv.R
 import com.example.diffutilrv.databinding.ActivityMainKtBinding
 

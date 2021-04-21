@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Normal.MainActivityKt">
+        <activity android:name=".SpecialActivity.SpecialActivity"></activity>
+        <activity android:name=".MainActivity.MainActivityKt">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

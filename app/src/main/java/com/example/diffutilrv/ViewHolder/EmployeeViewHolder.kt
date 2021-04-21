@@ -1,7 +1,8 @@
-package com.example.diffutilrv.Normal
+package com.example.diffutilrv.ViewHolder
 
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewbinding.ViewBinding
+import com.example.diffutilrv.Bean.Employee
+import com.example.diffutilrv.MainActivity.MainViewModel
 import com.example.diffutilrv.databinding.ListItemBinding
 
 /**

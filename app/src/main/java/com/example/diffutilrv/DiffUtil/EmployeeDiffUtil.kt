@@ -1,6 +1,7 @@
-package com.example.diffutilrv.Normal
+package com.example.diffutilrv.DiffUtil
 
 import androidx.recyclerview.widget.DiffUtil
+import com.example.diffutilrv.Bean.Employee
 
 object EmployeeDiffUtil : DiffUtil.ItemCallback<Employee>() {
     override fun areItemsTheSame(oldItem: Employee, newItem: Employee): Boolean {

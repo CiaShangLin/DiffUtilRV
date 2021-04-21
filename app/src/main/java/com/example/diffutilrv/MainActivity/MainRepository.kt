@@ -1,4 +1,6 @@
-package com.example.diffutilrv.Normal
+package com.example.diffutilrv.MainActivity
+
+import com.example.diffutilrv.Bean.Employee
 
 class MainRepository {
 

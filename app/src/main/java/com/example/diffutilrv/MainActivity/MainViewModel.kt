@@ -1,8 +1,10 @@
-package com.example.diffutilrv.Normal
+package com.example.diffutilrv.MainActivity
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.diffutilrv.Bean.Employee
+import com.example.diffutilrv.MainActivity.MainRepository
 
 class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
     private val mEmployeeLiveData = MutableLiveData<List<Employee>>()

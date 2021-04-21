@@ -1,8 +1,12 @@
-package com.example.diffutilrv.Normal
+package com.example.diffutilrv.Adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
+import com.example.diffutilrv.Bean.Employee
+import com.example.diffutilrv.DiffUtil.EmployeeDiffUtil
+import com.example.diffutilrv.ViewHolder.EmployeeViewHolder
+import com.example.diffutilrv.MainActivity.MainViewModel
 import com.example.diffutilrv.databinding.ListItemBinding
 
 class EmployeeAdapter(private val mainViewModel: MainViewModel) :
