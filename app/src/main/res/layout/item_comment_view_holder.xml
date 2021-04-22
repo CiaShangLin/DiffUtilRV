@@ -6,14 +6,14 @@
     android:background="@drawable/style_rectangle_stork_background">
 
     <TextView
-        android:id="@+id/employee_name"
+        android:id="@+id/tvId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/employee_role"
+        android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
