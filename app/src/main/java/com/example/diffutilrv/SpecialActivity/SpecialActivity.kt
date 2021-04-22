@@ -86,9 +86,8 @@ class SpecialActivity : AppCompatActivity() {
                     //可以跳出錯誤Dialog
                     it.exception.printStackTrace()
                 }
-                //這裡的泛型有點不知道該怎麼處裡
-                is State.Success<*> -> {
-                    mCommentAdapter.submitList(it.data as List<CommentBeanItem>)
+                is State.Success -> {
+                    mCommentAdapter.submitList(it.data)
                 }
             }
         })

@@ -15,11 +15,11 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
     private val mCompositeDisposable = CompositeDisposable()
     private val mEmployeeLiveData = MutableLiveData<List<Employee>>()
-    private val mCommentLiveData = MutableLiveData<State>()
+    private val mCommentLiveData = MutableLiveData<State<List<CommentBeanItem>>>()
     private val mOnClickLiveData = MutableLiveData<String>()
 
     fun getEmployeeLiveData(): LiveData<List<Employee>> = mEmployeeLiveData
-    fun getCommentLiveData(): LiveData<State> = mCommentLiveData
+    fun getCommentLiveData(): LiveData<State<List<CommentBeanItem>>> = mCommentLiveData
     fun getOnClickLiveData(): LiveData<String> = mOnClickLiveData
 
     init {
