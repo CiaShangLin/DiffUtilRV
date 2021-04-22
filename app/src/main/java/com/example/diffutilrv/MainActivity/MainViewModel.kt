@@ -26,22 +26,27 @@ class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
         getEmployeeList()
     }
 
+    //預設資料
     private fun getEmployeeList() {
         mEmployeeLiveData.value = mainRepository.getEmployeeList()
     }
 
+    //依照名字排序
     fun updateEmployeeListItemsByName() {
         mEmployeeLiveData.value = mainRepository.getEmployeeListSortedByName()
     }
 
+    //依照Role排序
     fun updateEmployeeListItemsByRole() {
         mEmployeeLiveData.value = mainRepository.getEmployeeListSortedByRole()
     }
 
+    //測試ViewHolder的Callback
     fun viewHolderOnClick(message: String) {
         mOnClickLiveData.value = message
     }
 
+    //來自網路的資料
     fun getCommentPostIdApi(postId: Int) {
         mainRepository.getCommentPostIdApi(postId)
             .observeOn(AndroidSchedulers.mainThread())
@@ -65,6 +70,7 @@ class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
             })
     }
 
+    //當ViewModel被清除時順便把沒做完的Dispose停止
     override fun onCleared() {
         super.onCleared()
         mCompositeDisposable.dispose()

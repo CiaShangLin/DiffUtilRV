@@ -31,6 +31,12 @@ class SpecialActivity : AppCompatActivity() {
             MainViewModel::class.java
         )
     }
+
+    /**
+     * 當setIsolateViewTypes(false)代表所有的Adapter共用一個ItemViewTypePool
+     * 簡單來說就是你的每個Adapter的ItemViewType不能重複
+     * 他的預設是true,假如你都沒設定ItemViewType那每個拿到我記得都會是0,這樣你就不能區分他是哪個ItemViewType了
+     */
     private val mConcatAdapter by lazy {
         ConcatAdapter(ConcatAdapter.Config.Builder().setIsolateViewTypes(false).build())
     }
