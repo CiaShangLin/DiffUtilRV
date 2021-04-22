@@ -9,6 +9,8 @@ ViewModel主要負責處理LiveData的傳送，Repository主要負責資料的�
 
 整體來說我比較喜歡把ViewModel傳入到Adapter和ViewHolder裡面，Adapter很常需要做載入更多的動作這時候就可以直接呼叫ViewModel而不需要在一個CallBack出去，而ViewHolder就不用說了沒有ViewModel的時候常常要寫一堆CallBack才能call到Activity或Fragment。
 
+至於用ViewBinding的原因有幾個，kotlin的synthetic以後要被棄用了，懶得寫findViewById()，不會DataBinding學不動
+
 ### 主要使用語言 Kotlin 1.3.71
 
 ### 主要使用的Library
