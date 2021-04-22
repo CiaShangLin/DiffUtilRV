@@ -12,6 +12,8 @@ import com.example.diffutilrv.Adapter.CommentAdapter
 import com.example.diffutilrv.Adapter.EmployeeAdapter
 import com.example.diffutilrv.Adapter.FooterAdapter
 import com.example.diffutilrv.Adapter.HeaderAdapter
+import com.example.diffutilrv.Bean.CommentBeanItem
+import com.example.diffutilrv.Bean.State
 import com.example.diffutilrv.MainActivity.MainViewModel
 import com.example.diffutilrv.ViewModelFactory.MainViewModelFactory
 import com.example.diffutilrv.databinding.ActivitySpecialBinding
@@ -76,7 +78,19 @@ class SpecialActivity : AppCompatActivity() {
 
         mViewModel.getCommentPostIdApi(1)
         mViewModel.getCommentLiveData().observe(this, Observer {
-            mCommentAdapter.submitList(it)
+            when (it) {
+                is State.Loading -> {
+                    //可以跳出Loading Dialog
+                }
+                is State.Fail -> {
+                    //可以跳出錯誤Dialog
+                    it.exception.printStackTrace()
+                }
+                //這裡的泛型有點不知道該怎麼處裡
+                is State.Success<*> -> {
+                    mCommentAdapter.submitList(it.data as List<CommentBeanItem>)
+                }
+            }
         })
     }
 }

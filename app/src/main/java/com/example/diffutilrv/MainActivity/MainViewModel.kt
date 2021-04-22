@@ -1,13 +1,13 @@
 package com.example.diffutilrv.MainActivity
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.diffutilrv.Bean.CommentBeanItem
 import com.example.diffutilrv.Bean.Employee
+import com.example.diffutilrv.Bean.State
+import com.example.diffutilrv.ApiService.StateObserver
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Observer
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -15,11 +15,11 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
     private val mCompositeDisposable = CompositeDisposable()
     private val mEmployeeLiveData = MutableLiveData<List<Employee>>()
-    private val mCommentLiveData = MutableLiveData<List<CommentBeanItem>>()
+    private val mCommentLiveData = MutableLiveData<State>()
     private val mOnClickLiveData = MutableLiveData<String>()
 
     fun getEmployeeLiveData(): LiveData<List<Employee>> = mEmployeeLiveData
-    fun getCommentLiveData(): LiveData<List<CommentBeanItem>> = mCommentLiveData
+    fun getCommentLiveData(): LiveData<State> = mCommentLiveData
     fun getOnClickLiveData(): LiveData<String> = mOnClickLiveData
 
     init {
@@ -51,21 +51,18 @@ class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
         mainRepository.getCommentPostIdApi(postId)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
-            .subscribe(object : Observer<List<CommentBeanItem>> {
-                override fun onSubscribe(d: Disposable?) {
-                    mCompositeDisposable.add(d)
-                }
-
-                override fun onNext(it: List<CommentBeanItem>) {
+            .subscribe(object : StateObserver<List<CommentBeanItem>>() {
+                override fun onSuccess(it: State.Success<List<CommentBeanItem>>) {
                     mCommentLiveData.value = it
                 }
 
-                override fun onError(e: Throwable?) {
-                    e?.printStackTrace()
+                override fun onFail(e: State.Fail) {
+                    mCommentLiveData.value = e
                 }
 
-                override fun onComplete() {
-
+                override fun onLoading(d: State.Loading) {
+                    mCommentLiveData.value = d
+                    mCompositeDisposable.add(d.disposable)
                 }
             })
     }
