@@ -20,6 +20,8 @@ ViewModel主要負責處理LiveData的傳送，Repository主要負責資料的�
 * Retrofit 2.9.0
 * adapter-rxjava3:2.9.0
 * converter-moshi:2.9.0
+* rxkotlin:3.0.1
+* rxandroid:3.0.0
 
 #### MVVM
 * lifecycle-viewmodel-ktx:2.3.1
@@ -28,9 +30,3 @@ ViewModel主要負責處理LiveData的傳送，Repository主要負責資料的�
 #### Json
 * moshi-kotlin:1.9.2
 * moshi-kotlin-codegen:1.11.0
-
-#### Other
-* rxkotlin:3.0.1
-* rxandroid:3.0.0
-
-
