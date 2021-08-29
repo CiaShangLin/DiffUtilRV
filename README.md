@@ -1,5 +1,9 @@
 # Best practice Challenge for MVVM x RecyclerView
 
+2021/8/29 更新
+ViewHolder傳入ViewModel有點智障,應該改成傳入interface,以後在改
+-----------------------
+
 大概遵循MVVM官方推薦的架構
 ViewModel主要負責處理LiveData的傳送，Repository主要負責資料的來源和一些邏輯判斷
 
